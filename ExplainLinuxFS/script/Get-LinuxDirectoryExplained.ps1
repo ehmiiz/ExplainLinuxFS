@@ -1,7 +1,7 @@
 class directorys : System.Management.Automation.IValidateSetValuesGenerator {
     [String[]] GetValidValues() {
         # Store the data inside the class
-        $directorynames = @{
+        $directoryNames = @{
             "bin"        = "essential user binaries"
             "boot"       = "boot loader files"
             "dev"        = "device files"
@@ -24,13 +24,12 @@ class directorys : System.Management.Automation.IValidateSetValuesGenerator {
         }
 
         # Expose variable for the function
-        $Global:directorysExplained = $directorynames
+        $Script:directorysExplained = $directoryNames
 
         # return only the names of the hashtable
-        return $directorynames.Keys
+        return $directoryNames.Keys
     }
 }
-
 function Get-LinuxDirectoryExplained {
     <#
 
@@ -63,10 +62,10 @@ function Get-LinuxDirectoryExplained {
         $Name,
         [Parameter(Mandatory = $false,
             ParameterSetName = 'Name')]
-        [switch]$go,
+        [switch]$Go,
         [Parameter(Mandatory = $false,
             ParameterSetName = 'All')]
-        [switch]$all
+        [switch]$All
         
     )
 
@@ -80,10 +79,12 @@ function Get-LinuxDirectoryExplained {
     }
 
     if (($All) -or ( -not $Name)) {
-        return $Global:directorysExplained
+        return $Script:directorysExplained
     }
     elseif ($Name) {
-        $return = $Global:directorysExplained | Select-Object $name -ErrorAction SilentlyContinue
+        $return = $Script:directorysExplained | Select-Object $name -ErrorAction SilentlyContinue
         return $return
     }
 }
+# The last line of code initilizes the functions param section and generates the script-scoped variables
+Get-LinuxDirectoryExplained bin | out-null

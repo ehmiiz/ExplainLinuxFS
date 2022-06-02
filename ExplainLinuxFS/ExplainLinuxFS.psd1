@@ -57,7 +57,7 @@ Description = 'Displays helpful information about the Linux root directorys'
 # RequiredAssemblies = @()
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
-# ScriptsToProcess = @()
+# ScriptsToProcess = @('./script/Get-LinuxDirectoryExplained.ps1')  
 
 # Type files (.ps1xml) to be loaded when importing this module
 # TypesToProcess = @()
