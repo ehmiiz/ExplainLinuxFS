@@ -37,18 +37,18 @@ function Get-LinuxDirectoryExplained {
     Will display helpful information regarding the linux root directorys
 
 .EXAMPLE
-    explain bin
-        Uses the alias "explain" and the mandatory parameter "Name" to display
+    ldexplain bin
+        Uses the alias "ldexplain" and the mandatory parameter "Name" to display
         information regarding the bin directory
 
 .EXAMPLE
-    explain etc -go
-        Uses the alias "explain" and the mandatory parameter "Name" to display
+    ldexplain etc -go
+        Uses the alias "ldexplain" and the mandatory parameter "Name" to display
         information regarding the etc directory, uses switch paramter "go" to set
         the location to \etc
 .EXAMPLE
-    explain -all
-        Uses the alias "explain" and the switch paramter "all" to display information
+    ldexplain -all
+        Uses the alias "ldexplain" and the switch paramter "all" to display information
         regarding all root directorys in the linux filesystem
 
 .NOTES
