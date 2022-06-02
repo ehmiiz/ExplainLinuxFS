@@ -1,6 +1,6 @@
 # ExplainLinuxFS
 
-Explain LinuxFS is a fast way of getting fast info regarding the linux standard directories at the command-line.
+Get info of the linux standard directories at the command-line, and go there.
 
 
 Explains /etc
