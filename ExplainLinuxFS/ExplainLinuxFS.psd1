@@ -24,13 +24,13 @@ GUID = 'a0ca7e99-77d3-42a4-a2cb-4af917551e14'
 Author = 'Ehmiiz'
 
 # Company or vendor of this module
-CompanyName = 'Ehmiiz AB'
+CompanyName = 'Ehmiiz'
 
 # Copyright statement for this module
 Copyright = 'Github\Ehmiiz'
 
 # Description of the functionality provided by this module
-Description = 'Displays helpful information about the Linux root folders'
+Description = 'Displays helpful information about the Linux root directorys'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''

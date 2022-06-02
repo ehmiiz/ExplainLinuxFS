@@ -1,8 +1,3 @@
-# Verify linux
-if (-not $IsLinux) {
-    Write-Warning "This is a linux-only module. Sorry."
-    Break
-}
 
 # Get functions
 $Functions = @( Get-ChildItem -Path $PSScriptRoot\*.ps1 -Recurse -ErrorAction SilentlyContinue )
@@ -19,7 +14,7 @@ foreach($import in @($Functions )){
 }
 
 # Aliases
-New-Alias -Name 'explain' -Value "Get-LinuxFoldersExplained"
+New-Alias -Name 'ldexplain' -Value "Get-LinuxDirectoryExplained"
 
-# Export everything in the folder
+# Export everything in the directory
 Export-ModuleMember -Function * -Cmdlet * -Alias *

@@ -1,7 +1,7 @@
-class Folders : System.Management.Automation.IValidateSetValuesGenerator {
+class directorys : System.Management.Automation.IValidateSetValuesGenerator {
     [String[]] GetValidValues() {
         # Store the data inside the class
-        $foldernames = @{
+        $directorynames = @{
             "bin"        = "essential user binaries"
             "boot"       = "boot loader files"
             "dev"        = "device files"
@@ -24,33 +24,33 @@ class Folders : System.Management.Automation.IValidateSetValuesGenerator {
         }
 
         # Expose variable for the function
-        $Global:FoldersExplained = $foldernames
+        $Global:directorysExplained = $directorynames
 
         # return only the names of the hashtable
-        return $foldernames.Keys
+        return $directorynames.Keys
     }
 }
 
-function Get-LinuxFoldersExplained {
+function Get-LinuxDirectoryExplained {
     <#
 
 .DESCRIPTION
-    Will display helpful information regarding the linux root folders
+    Will display helpful information regarding the linux root directorys
 
 .EXAMPLE
     explain bin
         Uses the alias "explain" and the mandatory parameter "Name" to display
-        information regarding the bin folder
+        information regarding the bin directory
 
 .EXAMPLE
     explain etc -go
         Uses the alias "explain" and the mandatory parameter "Name" to display
-        information regarding the etc folder, uses switch paramter "go" to set
+        information regarding the etc directory, uses switch paramter "go" to set
         the location to \etc
 .EXAMPLE
     explain -all
         Uses the alias "explain" and the switch paramter "all" to display information
-        regarding all root folders in the linux filesystem
+        regarding all root directorys in the linux filesystem
 
 .NOTES
 #>
@@ -59,7 +59,7 @@ function Get-LinuxFoldersExplained {
         [Parameter(Mandatory = $true,
             ParameterSetName = 'Name',
             Position = 0)]
-        [ValidateSet([Folders], ErrorMessage = "Incorrect folder name: '{0}'Give this a try: {1}")]
+        [ValidateSet([directorys], ErrorMessage = "Incorrect directory name: '{0}'Give this a try: {1}")]
         $Name,
         [Parameter(Mandatory = $false,
             ParameterSetName = 'Name')]
@@ -71,14 +71,19 @@ function Get-LinuxFoldersExplained {
     )
 
     if ($go) {
-        Set-Location /$name
+        if ($IsLinux) {
+            Set-Location /$name
+        }
+        else {
+            Write-Warning 'the "Go" parameter is only supported on Linux'
+        }
     }
 
-    if ($All) {
-        return $Global:FoldersExplained
+    if (($All) -or ( -not $Name)) {
+        return $Global:directorysExplained
     }
     elseif ($Name) {
-        $return = $Global:FoldersExplained | Select-Object $name -ErrorAction SilentlyContinue
+        $return = $Global:directorysExplained | Select-Object $name -ErrorAction SilentlyContinue
         return $return
     }
 }
