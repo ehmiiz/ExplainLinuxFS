@@ -17,3 +17,6 @@ Explains /etc, and sets the current working directory to /etc (Linux only)
 ```powershell
 ldexplain etc -go
 ```
+
+## Demo
+![](ExplainLinuxFS.gif)
