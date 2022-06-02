@@ -12,7 +12,7 @@
 RootModule = './ExplainLinuxFS.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.3'
+ModuleVersion = '0.0.4'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -30,7 +30,7 @@ CompanyName = 'Ehmiiz'
 Copyright = 'Have at it'
 
 # Description of the functionality provided by this module
-Description = 'Displays helpful information about the Linux root directorys'
+Description = 'Get info of the linux standard directories at the command-line, and go there'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
