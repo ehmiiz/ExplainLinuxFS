@@ -12,7 +12,7 @@
 RootModule = './ExplainLinuxFS.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '0.0.3'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -27,7 +27,7 @@ Author = 'Ehmiiz'
 CompanyName = 'Ehmiiz'
 
 # Copyright statement for this module
-Copyright = 'Github\Ehmiiz'
+Copyright = 'Have at it'
 
 # Description of the functionality provided by this module
 Description = 'Displays helpful information about the Linux root directorys'
@@ -101,7 +101,7 @@ PrivateData = @{
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/ehmiiz/ExplainLinuxFS'
 
         # A URL to an icon representing this module.
         # IconUri = ''
