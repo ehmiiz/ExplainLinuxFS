@@ -30,6 +30,7 @@ class directorys : System.Management.Automation.IValidateSetValuesGenerator {
         return $directoryNames.Keys
     }
 }
+
 function Get-LinuxDirectoryExplained {
     <#
 
@@ -50,6 +51,10 @@ function Get-LinuxDirectoryExplained {
     ldexplain -all
         Uses the alias "ldexplain" and the switch paramter "all" to display information
         regarding all root directorys in the linux filesystem
+.EXAMPLE
+    ldexplain root -f
+        Uses the alias "ldexplain" and the switch paramter "Full" to display the full
+        information regarding all root directorys in the linux filesystem
 
 .NOTES
 #>
@@ -65,7 +70,8 @@ function Get-LinuxDirectoryExplained {
         [switch]$Go,
         [Parameter(Mandatory = $false,
             ParameterSetName = 'All')]
-        [switch]$All
+        [switch]$All,
+        [switch]$Full
         
     )
 
@@ -80,6 +86,11 @@ function Get-LinuxDirectoryExplained {
 
     if (($All) -or ( -not $Name)) {
         return $Script:directorysExplained
+    }
+    elseif ($Name -and $Full) {
+        $FullInfo = (Get-Content "$PSScriptRoot\full.json" | ConvertFrom-Json).$name
+        $return = $Script:directorysExplained | Select-Object $name,@{l='Full';e={$FullInfo}} | Format-Table -Wrap -ErrorAction SilentlyContinue
+        return $return
     }
     elseif ($Name) {
         $return = $Script:directorysExplained | Select-Object $name -ErrorAction SilentlyContinue
