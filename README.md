@@ -2,7 +2,6 @@
 
 Get info of the linux standard directories at the command-line, and go there.
 
-
 Explains /etc
 ```powershell
 ldexplain etc
@@ -20,3 +19,5 @@ ldexplain etc -go
 
 ## Demo
 ![](ExplainLinuxFS.gif)
+
+This module does not work in Windows PowerShell
