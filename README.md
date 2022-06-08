@@ -9,17 +9,17 @@ ldexplain etc
 
 Explains all standard directories
 ```powershell
-ldexplain -all
+ldexplain -All
 ```
 
 Explains /etc, and sets the current working directory to /etc (Linux only)
 ```powershell
-ldexplain etc -go
+ldexplain etc -Go
 ```
 
-Explains /root, and displays the full explain message
+Explains /root, and displays the full explain message using the Full parameter
 ```powershell
-ldexplain root -f
+ldexplain root -Full
 ```
 
 
